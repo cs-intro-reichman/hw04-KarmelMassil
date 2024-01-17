@@ -45,17 +45,17 @@ public class ArrayOps {
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
         int l1 = array1.length;
         int l2 = array2.length;
-        int counter = 0;
         boolean g = true;
         for (int i = 0; i < l1; i++) {
+			int counter = 0;
             for (int j = 0; j < l2; j++) {
                 if (array1 [i] != array2 [j]) {
                     counter++;
+					if (counter == l2) {
+                       g = false;
+                       break;
+					}
                 }
-            }
-            if (counter == l2) {
-                g = false;
-            break;
             }
         }
         return g;

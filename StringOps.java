@@ -98,6 +98,6 @@ public class StringOps {
                 j++;
             }
         }
-        return arr[];
+        return arr;
     }
 }
