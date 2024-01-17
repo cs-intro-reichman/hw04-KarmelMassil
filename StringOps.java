@@ -44,7 +44,7 @@ public class StringOps {
         }
         int length = i + 1;
         temp = string.charAt(j);
-        if (string.charAt(j) >= 'A' && string.charAt(j) <='Z') {
+        if (string.charAt(j) >= 'A' && string.charAt(j) <='Z'){
             temp += 32;
            nospace += temp;
         }
@@ -66,17 +66,21 @@ public class StringOps {
             else if (temp == ' ') {
                 j++;
                 temp = string.charAt(j);
-                if (temp != ' ') {
-                   if (temp >='a' && temp <= 'z') {
-                      temp -= 32;
-                      nospace += temp;
+                for (int k = j; k < length; k++) {
+                    temp = string.charAt(k);
+                    j++;
+                    if (temp != ' '){
+                        if (temp >='a' && temp <= 'z') {
+                           temp -= 32;
+                           nospace += temp;
+                           break;
+                        }
+                        else if (temp >= 'A' && temp <= 'Z') {
+                            nospace +=temp;
+                            break;
+                        }
                     }
                 }
-                else if (temp == ' ') {
-                    while (temp != ' ' && j < length) {
-                        j++;
-                    }
-                } 
             }
         }
         return nospace;
