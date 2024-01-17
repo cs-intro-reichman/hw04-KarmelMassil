@@ -85,7 +85,7 @@ public class ArrayOps {
         }
         else if (j == array.length - 1) {
             for (int i = array.length - 2; i > 0; i--) {
-                if (array [i] > array [i + 1]) {
+                if (array [i] > array [i - 1]) {
                     g = false;
                     break;
                 }
