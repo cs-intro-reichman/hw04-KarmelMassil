@@ -1,42 +1,103 @@
 public class StringOps {
-    ////////////////////////////////////////////////////////////
-    //////                                               ///////
-    //////              Reminder:                        ///////
-    //////        allowed methods                        ///////
-    //////                                               ///////
-    //////        1.charAt(int index)                    ///////
-    //////        2.length()                             ///////
-    //////        3.substring(int start)                 ///////
-    //////        4.substring(int start,int ends)        ///////
-    //////        5.indexOf(String str)                  ///////
-    //////                                               ///////
-    //////        The rest are not allowed !             ///////
-    //////        if you want to use a different         ///////
-    //////        method, and you can implement          ///////
-    //////        it using material from the course      ///////
-    //////        you need to implement a version of     ///////
-    //////        the function by yourself.              ///////
-    //////                                               ///////
-    //////        see example for substring              ///////
-    //////        in Recitation 3 question 5             ///////
-    //////                                               ///////
-    ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+        char temp;
+        String sentence = "";
+        for (int i = 0; i < string.length(); i++) {
+            temp = string.charAt(i);
+            if (temp >='A' && temp <= 'Z') {
+                if (temp == 'A' || temp == 'E'|| temp == 'I'|| temp == 'O' || temp == 'U') {
+                }
+                else {
+                    temp += 32;
+                }
+            }
+           
+            else if (temp == 'a' || temp == 'e'|| temp == 'i'|| temp == 'o' || temp == 'u') {
+                temp -= 32;
+            }
+            sentence += temp;
+        }
+        return sentence;
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+        char temp;
+        String nospace = "";
+        int j = 0;
+        int i;
+        for (i = 0; i < string.length(); i++) {
+            temp = string.charAt(i);
+            if (temp != ' ') {
+               break;
+            }
+        }
+        j = i;
+        for (i = (string.length() - 1); i > 0; i--) {
+            temp = string.charAt(i);
+            if (temp != ' ') {
+               break;
+            }
+        }
+        int length = i + 1;
+        temp = string.charAt(j);
+        if (string.charAt(j) >= 'A' && string.charAt(j) <='Z'){
+            temp += 32;
+           nospace += temp;
+        }
+        else {
+            nospace += temp;
+        }
+        j++;
+        while (j < length) {
+            temp = string.charAt(j);
+            if (temp >='A' && temp <= 'Z') {
+            temp += 32;
+            nospace += temp;
+            }
+            else if (temp >='a' && temp <= 'z') {
+                nospace += temp;
+            }
+            else if (temp == ' ') {
+                j++;
+                temp = string.charAt(j);
+                if (temp != ' ') {
+                   if (temp >='a' && temp <= 'z') {
+                      temp -= 32;
+                      nospace += temp;
+                    }
+                }
+                else if (temp == ' ') {
+                    while (temp != ' ' && j < length) {
+                        j++;
+                    }
+                    j--;
+                } 
+            }
+            j++;
+        }
+        return nospace;
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int counter = 0;
+        int j = 0;
+        for (int i= 0; i < string.length(); i++) {
+            if (string.charAt(i) == chr) {
+                counter++;
+            }
+        }
+        int [] arr = new int[counter];
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == chr)
+            {
+                arr[j] = i;
+                j++;
+            }
+        }
+        return arr[];
     }
 }
